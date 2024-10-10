@@ -61,4 +61,8 @@ const welcome = (req, res) => {
   res.send("welcome here");
 };
 
-module.exports = { registerUser, login, getUser, welcome };
+const logOut = (req, res) => {
+  res.status(200).json({ message: "Logged out successfully" });
+};
+
+module.exports = { registerUser, login, getUser, welcome, logOut };
