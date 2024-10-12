@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use("/api/user", userRouter);
 
-port = process.env.PORT || 3001;
+port = process.env.PORT || 3002;
 
 app.get("/home", (req, res) => {
   res.send("hallo");
