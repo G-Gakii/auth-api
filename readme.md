@@ -29,7 +29,7 @@ npm install
 1. Start the server:
    npm run dev
 
-2. The server will run on http://localhost:3001.
+2. The server will run on http://localhost:3000.
 
 ### API Endpoints
 
