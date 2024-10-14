@@ -39,7 +39,14 @@ const login = async (req, res) => {
 
     // generate jwt token
 
-    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
+    const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 3600000,
+    });
     res.status(200).json({ token });
   } catch (error) {
     res.status(500).json({ message: "internal server error" });
@@ -62,6 +69,7 @@ const welcome = (req, res) => {
 };
 
 const logOut = (req, res) => {
+  res.clearCookie("token");
   res.status(200).json({ message: "Logged out successfully" });
 };
 
